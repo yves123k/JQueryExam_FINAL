@@ -1,25 +1,316 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Gestionnaire Étudiants</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gestionnaire Étudiants</title>
+
+  <!-- Font Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <h1>Gestion des étudiants</h1>
 
-    <div id="formulaire">
-        <input type="text" id="nom" placeholder="Nom de l'étudiant">
-        <input type="number" id="note" placeholder="Note /20" min="0" max="20">
-        <button id="btn-ajouter">Ajouter</button>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <h1 class="app-title">Gestion des étudiants</h1>
+
+    <div class="search-bar">
+      <span class="material-symbols-outlined search-icon">search</span>
+
+      <input
+        type="text"
+        placeholder="Rechercher un étudiant..."
+        aria-label="Rechercher un étudiant"
+      />
+
+      <button class="search-clear" type="button" aria-label="Effacer la recherche">
+        <i class="bi bi-x-lg"></i>
+      </button>
     </div>
+  </header>
 
-    <p id="erreur" style="color:red; display:none;"></p>
+  <!-- MAIN CONTENT -->
+  <main class="content">
 
-    <ul id="liste-etudiants"></ul>
-    
-    <div id="stats"></div>
+    <!-- FORMULAIRE -->
+    <section class="form-card">
+      <form id="formulaire">
+        <input
+          type="text"
+          id="nom"
+          placeholder="Nom de l'étudiant"
+        >
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="app.js"></script>
+        <input
+          type="number"
+          id="note"
+          placeholder="Note /20"
+          min="0"
+          max="20"
+        >
+
+        <button id="btn-ajouter" type="button">
+          <span class="material-symbols-outlined">add</span>
+          Ajouter
+        </button>
+      </form>
+    </section>
+
+    <!-- LISTE DES ÉTUDIANTS -->
+    <section class="students-section">
+
+      <div class="table-header">
+        <h2>Liste des étudiants</h2>
+
+        <button class="export-btn" type="button">
+          <span class="material-symbols-outlined">download</span>
+          Exporter
+        </button>
+      </div>
+
+      <!-- VERSION DESKTOP / TABLETTE -->
+      <div class="table-responsive">
+        <table class="students-table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Note /20</th>
+              <th>Date d’ajout</th>
+              <th>Observation</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <div class="student-info">
+                  <span class="avatar avatar-blue">AY</span>
+                  <span>Amine Yassine</span>
+                </div>
+              </td>
+
+              <td>
+                <span class="note note-success">
+                  <span></span>
+                  17,80
+                </span>
+              </td>
+
+              <td>12/05/2025</td>
+
+              <td>
+                <span class="badge badge-success">Excellent</span>
+              </td>
+
+              <td>
+                <div class="action-buttons">
+                  <button class="action-btn edit" type="button">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+
+                  <button class="action-btn delete" type="button">
+                    <span class="material-symbols-outlined">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="student-info">
+                  <span class="avatar avatar-purple">LH</span>
+                  <span>Lina Hakimi</span>
+                </div>
+              </td>
+
+              <td>
+                <span class="note note-warning">
+                  <span></span>
+                  12,40
+                </span>
+              </td>
+
+              <td>11/05/2025</td>
+
+              <td>
+                <span class="badge badge-warning">Passable</span>
+              </td>
+
+              <td>
+                <div class="action-buttons">
+                  <button class="action-btn edit" type="button">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+
+                  <button class="action-btn delete" type="button">
+                    <span class="material-symbols-outlined">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="student-info">
+                  <span class="avatar avatar-green">ME</span>
+                  <span>Mehdi El Amrani</span>
+                </div>
+              </td>
+
+              <td>
+                <span class="note note-danger">
+                  <span></span>
+                  7,30
+                </span>
+              </td>
+
+              <td>10/05/2025</td>
+
+              <td>
+                <span class="badge badge-danger">Très faible</span>
+              </td>
+
+              <td>
+                <div class="action-buttons">
+                  <button class="action-btn edit" type="button">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+
+                  <button class="action-btn delete" type="button">
+                    <span class="material-symbols-outlined">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- VERSION MOBILE -->
+      <div class="students-mobile-list">
+
+        <article class="student-card-mobile">
+          <div class="mobile-student-top">
+            <div class="student-info">
+              <span class="avatar avatar-blue">AY</span>
+
+              <div>
+                <h3>Amine Yassine</h3>
+                <p>Ajouté le 12/05/2025</p>
+              </div>
+            </div>
+
+            <span class="badge badge-success">Excellent</span>
+          </div>
+
+          <div class="mobile-student-bottom">
+            <span class="note note-success">
+              <span></span>
+              17,80 /20
+            </span>
+
+            <div class="action-buttons">
+              <button class="action-btn edit" type="button">
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+
+              <button class="action-btn delete" type="button">
+                <span class="material-symbols-outlined">delete</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="student-card-mobile">
+          <div class="mobile-student-top">
+            <div class="student-info">
+              <span class="avatar avatar-purple">LH</span>
+
+              <div>
+                <h3>Lina Hakimi</h3>
+                <p>Ajoutée le 11/05/2025</p>
+              </div>
+            </div>
+
+            <span class="badge badge-warning">Passable</span>
+          </div>
+
+          <div class="mobile-student-bottom">
+            <span class="note note-warning">
+              <span></span>
+              12,40 /20
+            </span>
+
+            <div class="action-buttons">
+              <button class="action-btn edit" type="button">
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+
+              <button class="action-btn delete" type="button">
+                <span class="material-symbols-outlined">delete</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="student-card-mobile">
+          <div class="mobile-student-top">
+            <div class="student-info">
+              <span class="avatar avatar-green">ME</span>
+
+              <div>
+                <h3>Mehdi El Amrani</h3>
+                <p>Ajouté le 10/05/2025</p>
+              </div>
+            </div>
+
+            <span class="badge badge-danger">Très faible</span>
+          </div>
+
+          <div class="mobile-student-bottom">
+            <span class="note note-danger">
+              <span></span>
+              7,30 /20
+            </span>
+
+            <div class="action-buttons">
+              <button class="action-btn edit" type="button">
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+
+              <button class="action-btn delete" type="button">
+                <span class="material-symbols-outlined">delete</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Gestionnaire Étudiants</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+
 </body>
 </html>

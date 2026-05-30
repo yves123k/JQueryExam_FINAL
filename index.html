@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionnaire Étudiants</title>
+</head>
+<body>
+    <h1>Gestion des étudiants</h1>
+
+    <div id="formulaire">
+        <input type="text" id="nom" placeholder="Nom de l'étudiant">
+        <input type="number" id="note" placeholder="Note /20" min="0" max="20">
+        <button id="btn-ajouter">Ajouter</button>
+    </div>
+
+    <p id="erreur" style="color:red; display:none;"></p>
+
+    <ul id="liste-etudiants"></ul>
+    
+    <div id="stats"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

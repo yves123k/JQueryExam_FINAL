@@ -127,6 +127,7 @@
               </td>
             </tr>
 
+            
             <tr>
               <td>
                 <div class="student-info">
@@ -312,5 +313,46 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="app.js"></script>
 
+  <!-- POPUP MODIFICATION NOTE -->
+    <div class="popup-overlay" id="popup-modifier-note">
+        <div class="popup-card">
+
+            <div class="popup-header">
+            <div>
+                <h2>Modifier la note</h2>
+                <p>Entrez uniquement la nouvelle note de l’étudiant.</p>
+            </div>
+
+            <button class="popup-close" type="button" id="fermer-popup">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            </div>
+
+            <div class="popup-body">
+            <label for="nouvelle-note">Nouvelle note</label>
+
+            <input 
+                type="number" 
+                id="nouvelle-note" 
+                placeholder="Ex : 14.5" 
+                min="0" 
+                max="20"
+            >
+
+            <small>La note doit être comprise entre 0 et 20.</small>
+            </div>
+
+            <div class="popup-actions">
+            <button class="btn-annuler" type="button" id="annuler-popup">
+                Annuler
+            </button>
+
+            <button class="btn-valider" type="button">
+                Valider
+            </button>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
